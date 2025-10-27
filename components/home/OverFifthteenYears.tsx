@@ -22,7 +22,7 @@ const OverFifthteenYears = () => {
         </div>
         <div className="mt-8 lg:mt-0">
           <Image
-            src="/images/Over_15+_years_of_experience.webp"
+            src="/images/homePage/Over_15+_years_of_experience.webp"
             alt="Over 15+ years of experience"
             width={800}
             height={600}
