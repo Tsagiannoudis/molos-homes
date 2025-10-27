@@ -23,7 +23,7 @@ const AboutThassosLand = () => {
         </div>
         <div className="mt-8 lg:mt-0">
           <Image
-            src="/images/homePage/About_ThassosLand.webp"
+            src="/images/homePage/About_thassosLand.webp"
             alt="About Thassos Land"
             width={800}
             height={600}
