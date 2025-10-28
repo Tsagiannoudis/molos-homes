@@ -74,9 +74,9 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
         </div>
 
         {/* --- Details & Photo Gallery --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+        <div className="inline grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
           {/* Details Section */}
-          <div className="lg:col-span-2 prose prose-lg max-w-none text-gray-700">
+          <div className="lg:col-span-1 prose prose-lg max-w-none text-gray-700">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Project Details</h2>
             {project.moreDetails.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
@@ -84,9 +84,9 @@ export default async function ProjectDetailsPage({ params }: { params: Promise<{
           </div>
 
           {/* Photo Gallery Section */}
-          <div className="lg:col-span-1">
+          <div className="lg:col mt-12">
             <h3 className="text-2xl font-bold text-gray-800 mb-6">Gallery</h3>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-3 gap-4">
               {project.photos?.map((photo, index) => (
                 <div key={index} className="relative w-full aspect-square rounded-lg overflow-hidden shadow-md transform hover:scale-105 transition-transform duration-300">
                   <Image src={photo} alt={`Gallery image ${index + 1} for ${project.title}`} fill className="object-cover" />
