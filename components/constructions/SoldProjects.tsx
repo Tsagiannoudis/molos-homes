@@ -28,7 +28,7 @@ const SoldProjectList = () => {
                                 <h3 className="text-xl font-bold mb-3 text-gray-800">{project.title}</h3>
                                 <p className="text-gray-700 mb-6 flex-grow">{project.shortDescription}</p>
                                 <div className="mt-auto">
-                                    <Link href={`/new-projects/${project.slug}`} className="inline-block bg-[#094875] text-white font-semibold py-2 px-5 rounded-ss-xl rounded-br-xl group-hover:bg-[#b9b788] transition-colors duration-300">
+                                    <Link href={`/sold-projects/${project.slug}`} className="inline-block bg-[#094875] text-white font-semibold py-2 px-5 rounded-ss-xl rounded-br-xl group-hover:bg-[#5D9DCD] transition-colors duration-300">
                                         More Details
                                     </Link>
                                 </div>

@@ -1,0 +1,80 @@
+import { notFound } from 'next/navigation';
+import Image from 'next/image';
+import { NewProjects } from '@/data/newProjectsData';
+import type { Metadata, ResolvingMetadata } from 'next';
+
+type Props = {
+  params: { slug: string };
+};
+
+// --- Generate Static Paths ---
+// Δημιουργεί τις σελίδες για κάθε project κατά το build time για καλύτερο SEO και απόδοση.
+export async function generateStaticParams() {
+  return NewProjects.map((project) => ({
+    slug: project.slug,
+  }));
+}
+
+// --- Generate Dynamic Metadata ---
+// Δημιουργεί δυναμικά τον τίτλο και την περιγραφή της σελίδας.
+export async function generateMetadata(
+  { params }: { params: Promise<{ slug: string }> },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // ✅ Από Next.js 14+ το params είναι Promise — πρέπει να το κάνουμε await
+  const { slug } = await params;
+  const project = NewProjects.find((p) => p.slug === slug);
+
+  if (!project) {
+    return {
+      title: 'Project Not Found',
+      description: 'The project you are looking for does not exist.',
+    };
+  }
+
+  return {
+    title: `Molos Homes | ${project.title}`,
+    description: project.shortDescription,
+    openGraph: {
+      title: `Molos Homes | ${project.title}`,
+      description: project.shortDescription,
+      images: [{ url: project.image }],
+    },
+  };
+}
+
+// --- Page Component ---
+export default async function ProjectDetailsPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const decodedSlug = decodeURIComponent(slug);
+  const project = NewProjects.find((p) => p.slug === decodedSlug);
+
+  if (!project) {
+    notFound();
+  }
+
+  return (
+    <section className="bg-white py-16 sm:py-24">
+      <div className="container mx-auto max-w-7xl px-4">
+        {/* --- Header --- */}
+        <div className="mb-12 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800">{project.title}</h1>
+          <p className="mt-3 text-lg text-gray-500">{project.date}</p>
+        </div>
+
+        {/* --- Main Image --- */}
+        <div className="relative w-full h-[300px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl mb-16">
+          <Image
+            src={project.image}
+            alt={`Εικόνα για το project ${project.title}`}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        
+      </div>
+    </section>
+  );
+}

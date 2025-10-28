@@ -1,12 +1,17 @@
 export const SoldProjects = [
     {
         id: 1,
-        slug: 'Projects with Plaster',
+        slug: 'Projects_with_Plaster',
         title: 'Projects with Plaster',
         date: '08 Νοεμβρίου 2025',
         time: '18:00 - 20:30',
         shortDescription: 'Building houses with Plaster.',
         image: '/images/projectsPhoto/plastic-houses.webp',
+        photos: [
+            '/images/projectsPhoto/plastic-houses.webp',
+            '/images/projectsPhoto/stone_house_1.webp',
+            '/images/projectsPhoto/stone_house_2.webp',
+        ],
         details: [
             'Ανακαλύψτε τις βασικές αρχές των στηρίξεων και των αναστροφών.',
             'Μάθετε ασφαλείς τεχνικές υποβοήθησης (spotting) για εσάς και τους μαθητές σας.',
@@ -22,12 +27,17 @@ export const SoldProjects = [
     },
     {
         id: 2,
-        slug: 'Stone Houses 1',
+        slug: 'stone_houses_1',
         title: 'Stone Houses 1',
         date: '08 Νοεμβρίου 2025',
         time: '18:00 - 20:30',
         shortDescription: 'Building houses with Stone.',
         image: '/images/projectsPhoto/stone_house_1.webp',
+        photos: [
+            '/images/projectsPhoto/stone_house_1.webp',
+            '/images/projectsPhoto/stone_house_2.webp',
+            '/images/projectsPhoto/stone_house_3.webp',
+        ],
         details: [
             'Ανακαλύψτε τις βασικές αρχές των στηρίξεων και των αναστροφών.',
             'Μάθετε ασφαλείς τεχνικές υποβοήθησης (spotting) για εσάς και τους μαθητές σας.',
@@ -40,15 +50,21 @@ export const SoldProjects = [
             'Στη συνέχεια, έξυπνες ασκήσεις -drills- των στηρίξεων στα χέρια, δίνουν το σχήμα σε αυτές πριν ακόμα την τελική τους εκτέλεση! Συμπληρωματικά, η κατάλληλη υποστήριξη από τους φίλους μας (assists) – και ΟΧΙ από τους τοίχους! – καθώς και πολλά ακόμα μικρά βήματα, θα μας οδηγήσουν σε αμέτρητες μικρές "νίκες" που θα καταλήξουν εν τέλει στο στόχο ενός σταθερού κατακορύφου!',
             'Το εργαστήριο απευθύνεται σε: Ασκούμενους με μερική εμπειρία στη yoga, χωρίς σοβαρούς τραυματισμούς, Δασκάλους Yoga, Pilates, χορευτές και performers, γυμναστές και γενικότερα όσους ασχολούνται με το φυσικό σώμα.'
         ]
+        
     },
     {
         id: 3,
-        slug: 'Stone Houses 2',
+        slug: 'stone_houses_2',
         title: 'Stone Houses 2',
         date: '08 Νοεμβρίου 2025',
         time: '18:00 - 20:30',
         shortDescription: 'Building houses with Stone.',
         image: '/images/projectsPhoto/stone_house_2.webp',
+        photos: [
+            '/images/projectsPhoto/stone_house_2.webp',
+            '/images/projectsPhoto/stone_house_3.webp',
+            '/images/projectsPhoto/stone_house_4.webp',
+        ],
         details: [
             'Ανακαλύψτε τις βασικές αρχές των στηρίξεων και των αναστροφών.',
             'Μάθετε ασφαλείς τεχνικές υποβοήθησης (spotting) για εσάς και τους μαθητές σας.',

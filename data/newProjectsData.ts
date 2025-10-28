@@ -1,7 +1,7 @@
 export const NewProjects = [
     {
         id: 1,
-        slug: 'Stone Houses 3',
+        slug: 'stone_houses_3',
         title: 'Stone Houses 3',
         date: '08 Νοεμβρίου 2025',
         time: '18:00 - 20:30',
@@ -22,7 +22,7 @@ export const NewProjects = [
     },
         {
         id: 2,
-        slug: 'Stone Houses 4',
+        slug: 'stone_houses_4',
         title: 'Stone Houses 4',
         date: '08 Νοεμβρίου 2025',
         time: '18:00 - 20:30',
