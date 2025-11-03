@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -12,6 +13,13 @@ const Footer = () => {
             <p className="text-gray-400">
               Building quality homes in Thassos with passion and precision.
             </p>
+            <Image
+              src="/images/logo.png"
+              alt="Molos Homes Logo"
+              width={300}
+              height={80}
+              className="-mt-8"
+            />
           </div>
 
           {/* Column 2: Navigation */}

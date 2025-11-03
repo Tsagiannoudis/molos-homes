@@ -3,13 +3,13 @@ import Image from "next/image";
 
 const WhyInThassosLand = () => {
   return (
-    <section className="py-30">
-      <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div className="text-left lg:order-last">
+ <section className="py-20 md:py-30 bg-gray-50">
+      <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="text-left">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[#5D9DCD]">
             Why in Thassos?
           </h2>
-          <div className="space-y-4 text-lg text-gray-700 pt-16 text-justify mr-30">
+          <div className="space-y-6 text-lg text-gray-700 pt-4 grid grid-cols-1 lg:grid-cols-1 gap-12 lg:gap-16 items-center">
             <p>
                 Thassos, in comparison to the rest of the Greek islands, is quite underdeveloped and offers incredible opportunities for those with an interest of building or buying a home in the sun on one of the most beautiful and unspoiled islands of the Mediterranean.
             </p>
@@ -21,7 +21,7 @@ const WhyInThassosLand = () => {
             </p>
           </div>
         </div>
-        <div className="mt-8 lg:mt-0">
+        <div className="mt-8 lg:mt-0 lg:order-first">
           <Image
             src="/images/aboutPage/WhyInThassosLand.webp"
             alt="Why in Thassos Land"
