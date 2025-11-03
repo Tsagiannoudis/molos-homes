@@ -1,11 +1,20 @@
+'use client';
+
 import React from "react";
 import Image from "next/image";
+import { useInView } from 'react-intersection-observer';
 
 const AboutThassosLand = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Τρέχει το animation μόνο μία φορά
+    threshold: 0.1,    // Ενεργοποιείται όταν το 10% του στοιχείου είναι ορατό
+  });
+
   return (
-    <section className="py-20">
+    <section ref={ref} className="py-20">
       <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div className="text-left lg:order-last">
+        {/* Text Column */}
+        <div className={`text-left lg:order-last transition-opacity duration-1000 ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[#5D9DCD]">
             About Thassos Land
           </h2>
@@ -21,7 +30,8 @@ const AboutThassosLand = () => {
             </p>
           </div>
         </div>
-        <div className="mt-8 lg:mt-0">
+        {/* Image Column */}
+        <div className={`mt-8 lg:mt-0 transition-opacity duration-1000 ${inView ? 'animate-fade-' : 'opacity-0'}`}>
           <Image
             src="/images/homePage/About_thassosLand.webp"
             alt="About Thassos Land"

@@ -4,7 +4,7 @@ import { ChevronDownIcon } from '@heroicons/react/24/solid';
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import Hamburger from './Hamburger';
+import Hamburger from './extraComponents/Hamburger';
 
 
 const Navbar = () => {

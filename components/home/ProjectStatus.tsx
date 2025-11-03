@@ -1,14 +1,24 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useInView } from 'react-intersection-observer';
 
 const ProjectStatus = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Τρέχει το animation μόνο μία φορά
+    threshold: 0.1,    // Ενεργοποιείται όταν το 10% του στοιχείου είναι ορατό
+  });
+
   return (
-    <section className="py-10">
+    <section ref={ref} className="py-10">
       <div className="container mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* New Projects */}
-          <Link href="/new-projects" className="block bg-[#094875] p-8 rounded-lg text-center shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+          <Link 
+            href="/new-projects" 
+            className={`block transform bg-[#094875] p-8 rounded-lg text-center shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-105 hover:shadow-2xl ${inView ? 'animate-fade-in-left' : 'opacity-0'}`}>
             <Image 
                 src="/images/homePage/new-projects-white.png"
                 alt="New Projects"
@@ -25,7 +35,9 @@ const ProjectStatus = () => {
           </Link>
 
           {/* Sold Projects */}
-          <Link href="/sold-projects" className=" bg-[#094875] p-8 rounded-lg text-center shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out">
+          <Link 
+            href="/sold-projects" 
+            className={`block transform bg-[#094875] p-8 rounded-lg text-center shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2 hover:scale-105 hover:shadow-2xl ${inView ? 'animate-fade-in-right' : 'opacity-0'}`}>
             <Image 
                 src="/images/homePage/selling-projects-white.png"
                 alt="Sold Projects"
