@@ -1,15 +1,31 @@
 export const NewProjects = [
     {
-        id: 1,
+       id: 1,
         slug: 'stone_houses_3',
         title: 'Stone Houses 3',
-        date: '08 Νοεμβρίου 2025',
+        date: '08 November 2018',
         time: '18:00 - 20:30',
-        shortDescription: 'Building houses with Stone.',
+        shortDescription: 'The epitome of modern luxury, this project evolves our stone craftsmanship in a privileged location with refined design.',
         image: '/images/projectsPhoto/stone_house_3.webp',
         photos: [
-            '/images/projectsPhoto/plaster/projectswithplaster1.webp',
-    
+            '/images/projectsPhoto/stone3/stonehouse_3.1.webp',
+            '/images/projectsPhoto/stone3/stonehouse_3.2.webp',
+            '/images/projectsPhoto/stone3/stonehouse_3.3.webp',
+            '/images/projectsPhoto/stone3/stonehouse_3.4.webp',
+            '/images/projectsPhoto/stone3/stonehouse_3.5.webp',
+            '/images/projectsPhoto/stone3/stonehouse_3.6.webp',
+            '/images/projectsPhoto/stone3/stonehouse_3.7.webp',
+            '/images/projectsPhoto/stone3/stonehouse_3.8.webp',
+            '/images/projectsPhoto/stone3/stonehouse_3.9.webp',
+            '/images/projectsPhoto/stone3/stonehouse_3.10.webp',
+            '/images/projectsPhoto/stone3/stonehouse_3.11.webp',
+            '/images/projectsPhoto/stone3/stonehouse_3.12.webp',
+            '/images/projectsPhoto/stone3/stonehouse_3.13.webp',
+            '/images/projectsPhoto/stone3/stonehouse_3.14.webp',
+            '/images/projectsPhoto/stone3/stonehouse_3.15.webp',
+            '/images/projectsPhoto/stone3/stonehouse_3.16.webp',
+            '/images/projectsPhoto/stone3/stonehouse_3.17.webp',
+            '/images/projectsPhoto/stone3/stonehouse_3.18.webp',
         ],
         details: [
             'Μοντέρνα και λιτή αισθητική που αναδεικνύει κάθε αρχιτεκτονικό σχέδιο.',
@@ -18,9 +34,9 @@ export const NewProjects = [
             'Ευελιξία στο σχεδιασμό με δυνατότητα δημιουργίας λείων επιφανειών ή ιδιαίτερων τεχνοτροπιών.'
         ],
         moreDetails: [
-            'Plaster construction is a modern and elegant solution that combines high aesthetics with practicality. It creates uniform, smooth surfaces that give a sense of cleanliness and luxury to the space, highlighting the architectural lines of the building and offering a timeless result.',
-            'Beyond its aesthetic superiority, plaster offers significant practical benefits. It acts as a protective shield for the building, providing excellent thermal insulation that helps reduce energy costs, as well as sound insulation, ensuring a quiet and peaceful indoor environment.',
-            'At Molos Homes, we leverage the properties of plaster to create homes that are not only beautiful but also functional. We use top-quality materials and apply specialized techniques to guarantee a flawless finish that withstands time and weather conditions, maintaining the value and beauty of your investment for many years to come.'
+            'With "Stone Houses 3", we continue the beloved tradition, evolving the art of stone construction to new levels. This complex, built in a privileged location with an unobstructed view, is the epitome of modern luxury embraced by the timeless charm of natural stone.',
+            'Each residence is designed to offer a unique living experience, where interior spaces flow harmoniously to the exterior, creating a sense of unity with the landscape. The craftsmanship in stone placement, combined with high-quality materials and minimal design lines, offers a result that is both robust and refined.',
+            '"Stone Houses 3" is not just a continuation, but a statement of our commitment to innovation and excellence. It demonstrates how tradition can meet the future, creating homes that are a valuable legacy for future generations, offering comfort, security, and unparalleled aesthetics.'
         ]
     },
         {
@@ -29,11 +45,13 @@ export const NewProjects = [
         title: 'Stone Houses 4',
         date: '08 Νοεμβρίου 2025',
         time: '18:00 - 20:30',
-        shortDescription: 'Building houses with Stone.',
+        shortDescription: 'The next chapter in our stone-built legacy, this upcoming project combines sustainable luxury with cutting-edge design.',
         image: '/images/projectsPhoto/stone_house_4.webp',
         photos: [
-            '/images/projectsPhoto/plaster/projectswithplaster1.webp',
-    
+            '/images/projectsPhoto/stone4/stonehouse_4.1.webp',
+            '/images/projectsPhoto/stone4/stonehouse_4.2.webp',
+            '/images/projectsPhoto/stone4/stonehouse_4.3.webp',
+            '/images/projectsPhoto/stone4/stonehouse_4.4.webp',
         ],
         details: [
             'Μοντέρνα και λιτή αισθητική που αναδεικνύει κάθε αρχιτεκτονικό σχέδιο.',
@@ -42,9 +60,9 @@ export const NewProjects = [
             'Ευελιξία στο σχεδιασμό με δυνατότητα δημιουργίας λείων επιφανειών ή ιδιαίτερων τεχνοτροπιών.'
         ],
         moreDetails: [
-            'Plaster construction is a modern and elegant solution that combines high aesthetics with practicality. It creates uniform, smooth surfaces that give a sense of cleanliness and luxury to the space, highlighting the architectural lines of the building and offering a timeless result.',
-            'Beyond its aesthetic superiority, plaster offers significant practical benefits. It acts as a protective shield for the building, providing excellent thermal insulation that helps reduce energy costs, as well as sound insulation, ensuring a quiet and peaceful indoor environment.',
-            'At Molos Homes, we leverage the properties of plaster to create homes that are not only beautiful but also functional. We use top-quality materials and apply specialized techniques to guarantee a flawless finish that withstands time and weather conditions, maintaining the value and beauty of your investment for many years to come.'
+            '"Stone Houses 4" is the next chapter in our journey with stone, a project currently under construction that embodies all our expertise. It represents the future of sustainable luxury, combining traditional aesthetics with innovative techniques and materials.',
+            'In this project, we are pushing the boundaries of design even further. Larger glass surfaces bring the light and nature of Thassos indoors, while an emphasis on energy efficiency and smart home technologies sets new standards for comfortable and ecological living.',
+            'As "Stone Houses 4" takes shape, we invite you to follow the evolution of your next dream. This project is not just a residence, but an investment in a lifestyle that combines the tranquility of nature with the comfort of modern technology. Become a part of the future we are building.'
         ]
     },
     

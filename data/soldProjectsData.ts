@@ -5,7 +5,7 @@ export const SoldProjects = [
         title: 'Project with Plaster',
         date: '08 November 2000',
         time: '18:00 - 20:30',
-        shortDescription: 'Building houses with Plaster.',
+        shortDescription: 'A construction with clean lines, offering a timeless aesthetic, excellent insulation, and a luxurious finish.',
         image: '/images/projectsPhoto/plastic-houses.webp',
         photos: [
             '/images/projectsPhoto/plaster/projectswithplaster1.1.webp',
@@ -50,7 +50,7 @@ export const SoldProjects = [
         title: 'Stone Houses 1',
         date: '18 February 2008',
         time: '18:00 - 20:30',
-        shortDescription: 'Building houses with Stone.',
+        shortDescription: 'Our landmark project, blending traditional stone craftsmanship with modern design for timeless appeal and natural harmony.',
         image: '/images/projectsPhoto/stone_house_1.webp',
         photos: [
             '/images/projectsPhoto/stone1/stonehouse_1.1.webp',
@@ -99,7 +99,7 @@ export const SoldProjects = [
         title: 'Stone Houses 2',
         date: '02 September 2012',
         time: '18:00 - 20:30',
-        shortDescription: 'Building houses with Stone.',
+        shortDescription: 'Evolving our signature style, this complex combines perfected stone craftsmanship with bioclimatic design and understated luxury.',
         image: '/images/projectsPhoto/stone_house_2.webp',
         photos: [
             '/images/projectsPhoto/stone2/stonehouse_2.1.webp',
@@ -121,6 +121,8 @@ export const SoldProjects = [
             '/images/projectsPhoto/stone2/stonehouse_2.17.webp',
             '/images/projectsPhoto/stone2/stonehouse_2.18.webp',
             '/images/projectsPhoto/stone2/stonehouse_2.19.webp',
+            '/images/projectsPhoto/stone2/stonehouse_2.20.webp',
+            '/images/projectsPhoto/stone2/stonehouse_2.21.webp',
         ],
         details: [
             'Εξέλιξη του παραδοσιακού σχεδιασμού με σύγχρονες, πολυτελείς ανέσεις.',
