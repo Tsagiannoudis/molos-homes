@@ -1,15 +1,23 @@
+'use client'
 import React from "react";
 import Image from "next/image";
+import { useInView } from 'react-intersection-observer';
+
 
 const WhyInThassosLand = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true, 
+    threshold: 0.1,    
+  });
+
   return (
- <section className="py-20 md:py-30 bg-gray-50">
+ <section ref={ref} className="py-20 md:py-30 bg-gray-50">
       <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <div className="text-left">
+        <div className="text-left animate-fade-in-left">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[#5D9DCD]">
             Why in Thassos?
           </h2>
-          <div className="space-y-6 text-lg text-gray-700 pt-4 grid grid-cols-1 lg:grid-cols-1 gap-12 lg:gap-16 items-center">
+          <div className="space-y-6 text-lg text-gray-700 pt-4 grid grid-cols-1 lg:grid-cols-1 gap-12 lg:gap-16 items-center animate-fade-in5s">
             <p>
                 Thassos, in comparison to the rest of the Greek islands, is quite underdeveloped and offers incredible opportunities for those with an interest of building or buying a home in the sun on one of the most beautiful and unspoiled islands of the Mediterranean.
             </p>

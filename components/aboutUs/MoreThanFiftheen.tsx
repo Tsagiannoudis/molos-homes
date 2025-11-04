@@ -1,10 +1,16 @@
+'use client'
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
 
 const MoreThanFifthteenYears = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Τρέχει το animation μόνο μία φορά
+    threshold: 0.1,    // Ενεργοποιείται όταν το 10% του στοιχείου είναι ορατό
+  });
   return (
-<section className="py-20 md:py-30 bg-white">
+<section ref={ref} className="py-20 md:py-30 bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center lg:text-left mb-12 lg:mb-16">
+        <div className="text-center lg:text-left mb-12 lg:mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800">
             More than 15 years of experience in design and construction
           </h2>
@@ -12,7 +18,7 @@ const MoreThanFifthteenYears = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Text Column */}
           <div className="w-full text-justify lg:order-2">
-            <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+            <div className="space-y-6 text-lg text-gray-700 leading-relaxed animate-fade-in5s">
               <p>
                 Molos Homes in Skala Potamia, Thassos, undertakes design, construction and sale of houses and maisonettes primarily in the Golden Beach area of the emerald island of Thassos.
               </p>

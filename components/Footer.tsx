@@ -18,7 +18,7 @@ const Footer = () => {
               alt="Molos Homes Logo"
               width={300}
               height={80}
-              className="-mt-8"
+              className="-mt-4"
             />
           </div>
 

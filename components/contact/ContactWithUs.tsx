@@ -1,11 +1,19 @@
+'use client';
+
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPhone, faLocationDot, faUser } from "@fortawesome/free-solid-svg-icons";
+import { useInView } from "react-intersection-observer";
 
 const ContactWithUs = () => {
+    const { ref, inView } = useInView({
+      triggerOnce: true, // Τρέχει το animation μόνο μία φορά
+      threshold: 0.1,    // Ενεργοποιείται όταν το 10% του στοιχείου είναι ορατό
+    });
+
     return (
-        <div className="bg-white p-8 rounded-lg shadow-lg h-full">
+        <div ref={ref} className={`bg-white p-8 rounded-lg shadow-lg h-full transition-opacity duration-1000 ${inView ? 'animate-fade-in-left' : 'opacity-0'}`}>
             <h2 className="text-3xl font-bold text-gray-900 mb-2">Get in Touch</h2>
             <p className="text-gray-600 mb-8"> We'd love to hear from you! Feel free to reach out through any of the following channels:</p>
             <div className="space-y-6">

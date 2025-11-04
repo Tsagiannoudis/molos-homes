@@ -1,8 +1,16 @@
-"use client";
+'use client';
+
+import React from "react";
+import { useInView } from 'react-intersection-observer';
 import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { useState, ChangeEvent, FormEvent } from "react";
 
 export default function FormContact() {
+    const { ref, inView } = useInView({
+      triggerOnce: true, // Τρέχει το animation μόνο μία φορά
+      threshold: 0.1,    // Ενεργοποιείται όταν το 10% του στοιχείου είναι ορατό
+    });
+
   const [formData, setFormData] = useState({
     name: "",
     surname: "",
@@ -81,8 +89,8 @@ export default function FormContact() {
   };
 
   return (
-    <div className="w-full">
-      <div className="bg-white p-8 rounded-lg shadow-lg"> {/* Added wrapper for form styling */}
+    <div ref={ref} className={`w-full transition-opacity duration-1000 ${inView ? 'animate-fade-in-right' : 'opacity-0'}`}>
+      <div className="bg-white p-8 rounded-lg shadow-lg">
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Free Consultation</h2>
           <p className="text-gray-600">We would love to hear from you! We are at your disposal to solve any question you have or to discuss any clarification!</p>
