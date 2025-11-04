@@ -1,10 +1,18 @@
+'use client'
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { NewProjects } from '@/data/newProjectsData';
+import { useInView } from 'react-intersection-observer';
 
 const NewProjectList = () => { 
+    const { ref, inView } = useInView({
+        triggerOnce: true, // Τρέχει το animation μόνο μία φορά
+        threshold: 0.1,
+    });
+
     return (
-        <section className="w-full bg-[#F3F3F3]">
+        <section ref={ref} className="w-full bg-[#F3F3F3]">
             <div className="container mx-auto max-w-7xl px-4 py-16 sm:py-24">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold text-gray-800 tracking-tight">Our New Projects</h2>
@@ -20,7 +28,7 @@ const NewProjectList = () => {
                                     src={project.image}
                                     alt={`Εικόνα για το project ${project.title}`}
                                     fill
-                                    className="object-cover"
+                                    className="object-cover animate-bounce-in"
                                 />
                             </div>
                             <div className="flex flex-col flex-grow p-6">

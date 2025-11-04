@@ -15,7 +15,7 @@ const AboutThassosLand = () => {
       <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Text Column */}
         <div className={`text-left lg:order-last transition-opacity duration-1000 ${inView ? 'animate-fade-in' : 'opacity-0'}`}>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-[#5D9DCD]">
+          <h2 className={`text-4xl lg:text-5xl font-bold mb-6 text-[#5D9DCD] ${inView ? 'animate-bounce-in' : 'opacity-0'}`}>
             About Thassos Land
           </h2>
           <div className="space-y-4 text-lg text-gray-700 pt-16">
@@ -31,7 +31,7 @@ const AboutThassosLand = () => {
           </div>
         </div>
         {/* Image Column */}
-        <div className={`mt-8 lg:mt-0 transition-opacity duration-1000 ${inView ? 'animate-fade-' : 'opacity-0'}`}>
+        <div className={`mt-8 lg:mt-0 transition-opacity duration-1000 ${inView ? 'animate-fade-in-left' : 'opacity-0'}`}>
           <Image
             src="/images/homePage/About_thassosLand.webp"
             alt="About Thassos Land"
