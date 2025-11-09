@@ -6,10 +6,11 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Η διεύθυνση email στην οποία θα στέλνονται τα μηνύματα
 const emailTo = process.env.EMAIL_TO;
+const emailFrom = process.env.EMAIL_FROM || 'Molos Homes <onboarding@resend.dev>';
 
 export async function POST(request: Request) {
   // Έλεγχος ασφαλείας: Βεβαιωνόμαστε ότι οι μεταβλητές υπάρχουν
-  if (!process.env.RESEND_API_KEY || !emailTo) {
+  if (!process.env.RESEND_API_KEY || !emailTo || !emailFrom) {
     console.error("Resend API Key or Email To is not configured.");
     return NextResponse.json({ message: 'Σφάλμα διακομιστή. Παρακαλώ δοκιμάστε ξανά αργότερα.' }, { status: 500 });
   }
@@ -20,7 +21,7 @@ export async function POST(request: Request) {
 
    
     const { data, error } = await resend.emails.send({
-      from: `Molos Homes <onboarding@resend.dev>`,
+      from: emailFrom,
       to: [emailTo],
       replyTo: email,
       subject: `Νέο μήνυμα από τη φόρμα επικοινωνίας - ${name} ${surname}`,
