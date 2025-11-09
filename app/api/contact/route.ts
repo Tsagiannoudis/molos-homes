@@ -5,6 +5,9 @@ import { Resend } from 'resend';
 const emailTo = process.env.EMAIL_TO;
 const emailFrom = process.env.EMAIL_FROM || 'Molos Homes <onboarding@resend.dev>';
 
+// ✅ Δηλώνουμε ότι αυτό το route δεν είναι Server Action για να αποφύγουμε το CSRF check
+export const experimental_server_actions = false;
+
 export async function POST(request: Request) {
   // Έλεγχος ασφαλείας: Βεβαιωνόμαστε ότι οι μεταβλητές υπάρχουν
   if (!process.env.RESEND_API_KEY || !emailTo) {
