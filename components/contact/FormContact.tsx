@@ -44,7 +44,7 @@ export default function FormContact() {
     }));
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/components/extraComponents/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -72,11 +72,8 @@ export default function FormContact() {
         throw new Error(data.message || "Κάτι πήγε στραβά.");
       }
     } catch (error) {
-      // Το error εδώ είναι τύπου 'unknown' από προεπιλογή
-      // Ορίζουμε ένα προεπιλεγμένο μήνυμα σφάλματος
       let errorMessage =
         "Προέκυψε ένα μη αναμενόμενο σφάλμα. Παρακαλώ δοκιμάστε ξανά.";
-      // Ελέγχουμε αν το σφάλμα είναι μια κανονική περίπτωση Error
       if (error instanceof Error) {
         errorMessage = error.message;
       }

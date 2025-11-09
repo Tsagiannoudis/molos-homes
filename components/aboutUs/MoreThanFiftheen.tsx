@@ -32,7 +32,7 @@ const MoreThanFifthteenYears = () => {
           </div>
           {/* YouTube Player Column */}
           <div className="w-full lg:order-1">
-            <div className="aspect-w-16 aspect-h-9 rounded-lg shadow-xl overflow-hidden">
+            <div className="aspect-video rounded-lg shadow-xl overflow-hidden">
               <iframe
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/emMKfyT1E8A"
@@ -49,4 +49,3 @@ const MoreThanFifthteenYears = () => {
 };
 
 export default MoreThanFifthteenYears;
-
