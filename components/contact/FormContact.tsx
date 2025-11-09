@@ -44,7 +44,7 @@ export default function FormContact() {
     }));
 
     try {
-      const response = await fetch("/components/extraComponents/api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
