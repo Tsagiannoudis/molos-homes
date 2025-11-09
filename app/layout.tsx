@@ -19,9 +19,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Molos Homes",
   description: "Building your dream house at Skala Potamias in Thassos",
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 export default function RootLayout({
   children,
