@@ -1,19 +1,19 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Δημιουργούμε ένα instance του Resend client
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Η διεύθυνση email στην οποία θα στέλνονται τα μηνύματα
 const emailTo = process.env.EMAIL_TO;
 const emailFrom = process.env.EMAIL_FROM || 'Molos Homes <onboarding@resend.dev>';
 
 export async function POST(request: Request) {
   // Έλεγχος ασφαλείας: Βεβαιωνόμαστε ότι οι μεταβλητές υπάρχουν
-  if (!process.env.RESEND_API_KEY || !emailTo || !emailFrom) {
+  if (!process.env.RESEND_API_KEY || !emailTo) {
     console.error("Resend API Key or Email To is not configured.");
     return NextResponse.json({ message: 'Σφάλμα διακομιστή. Παρακαλώ δοκιμάστε ξανά αργότερα.' }, { status: 500 });
   }
+
+  // Δημιουργούμε ένα instance του Resend client μέσα στο handler
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
     // Παίρνουμε τα δεδομένα από το σώμα του request (από τη φόρμα)
