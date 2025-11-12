@@ -15,7 +15,6 @@ export default function FormContact() {
     name: "",
     surname: "",
     email: "",
-    phone: "",
     message: "",
   });
 
@@ -65,7 +64,6 @@ export default function FormContact() {
           name: "",
           surname: "",
           email: "",
-          phone: "",
           message: "",
         });
       } else {
