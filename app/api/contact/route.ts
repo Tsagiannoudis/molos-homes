@@ -1,22 +1,27 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Δημιουργούμε ένα instance του Resend client
-const resend = new Resend(process.env.RESEND_API_KEY);
-// Η διεύθυνση email στην οποία θα στέλνονται τα μηνύματα
-const emailTo = process.env.EMAIL_TO;
-
 export async function POST(request: Request) {  
-  // Έλεγχος ασφαλείας: Βεβαιωνόμαστε ότι οι μεταβλητές υπάρχουν
-  if (!process.env.RESEND_API_KEY || !emailTo) {
-    console.error("Resend API Key or Email To is not configured.");
-    // Επιστρέφουμε ένα πιο συγκεκριμένο μήνυμα για το development, αλλά γενικό για τον χρήστη.
-    return NextResponse.json({ message: 'Σφάλμα διακομιστή. Παρακαλώ δοκιμάστε ξανά αργότερα.' }, { status: 500 });
-  }
-
   try {
     // Παίρνουμε τα δεδομένα από το σώμα του request (από τη φόρμα)
     const { name, surname, email, phone, message } = await request.json();
+
+    // --- Βελτιωμένος Έλεγχος ---
+    // 1. Έλεγχος για τις μεταβλητές περιβάλλοντος
+    const apiKey = process.env.RESEND_API_KEY;
+    const emailTo = process.env.EMAIL_TO;
+
+    if (!apiKey || !emailTo) {
+      console.error("Server Error: RESEND_API_KEY or EMAIL_TO is not configured.");
+      return NextResponse.json({ message: 'Σφάλμα διακομιστή. Η παραμετροποίηση δεν είναι σωστή.' }, { status: 500 });
+    }
+
+    // 2. Έλεγχος για τα απαραίτητα πεδία της φόρμας
+    if (!name || !surname || !email || !message) {
+      return NextResponse.json({ message: 'Παρακαλώ συμπληρώστε όλα τα απαραίτητα πεδία.' }, { status: 400 });
+    }
+
+    const resend = new Resend(apiKey);
 
     const { data, error } = await resend.emails.send({
       from: `Molos Homes <onboarding@resend.dev>`,
@@ -36,14 +41,14 @@ export async function POST(request: Request) {
     });
 
     if (error) {
-      console.error("Resend error:", error);
+      console.error("Resend API Error:", error);
       return NextResponse.json({ message: 'Η αποστολή απέτυχε. Παρακαλώ δοκιμάστε ξανά.' }, { status: 500 });
     }
 
     return NextResponse.json({ message: 'Το μήνυμά σας στάλθηκε με επιτυχία!' }, { status: 200 });
 
   } catch (e) {
-    console.error("API route error:", e);
+    console.error("API Route General Error:", e);
     return NextResponse.json({ message: 'Η αποστολή απέτυχε. Παρακαλώ δοκιμάστε ξανά.' }, { status: 500 });
   }
 }
