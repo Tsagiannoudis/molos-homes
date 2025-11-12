@@ -1,30 +1,25 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
+// Δημιουργούμε ένα instance του Resend client
+const resend = new Resend(process.env.RESEND_API_KEY);
 // Η διεύθυνση email στην οποία θα στέλνονται τα μηνύματα
 const emailTo = process.env.EMAIL_TO;
-const emailFrom = process.env.EMAIL_FROM || 'Molos Homes <onboarding@resend.dev>';
 
-// ✅ Δηλώνουμε ότι αυτό το route δεν είναι Server Action για να αποφύγουμε το CSRF check
-export const experimental_server_actions = false;
-
-export async function POST(request: Request) {
+export async function POST(request: Request) {  
   // Έλεγχος ασφαλείας: Βεβαιωνόμαστε ότι οι μεταβλητές υπάρχουν
   if (!process.env.RESEND_API_KEY || !emailTo) {
     console.error("Resend API Key or Email To is not configured.");
+    // Επιστρέφουμε ένα πιο συγκεκριμένο μήνυμα για το development, αλλά γενικό για τον χρήστη.
     return NextResponse.json({ message: 'Σφάλμα διακομιστή. Παρακαλώ δοκιμάστε ξανά αργότερα.' }, { status: 500 });
   }
-
-  // Δημιουργούμε ένα instance του Resend client μέσα στο handler
-  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
     // Παίρνουμε τα δεδομένα από το σώμα του request (από τη φόρμα)
     const { name, surname, email, phone, message } = await request.json();
 
-   
     const { data, error } = await resend.emails.send({
-      from: emailFrom,
+      from: `Molos Homes <onboarding@resend.dev>`,
       to: [emailTo],
       replyTo: email,
       subject: `Νέο μήνυμα από τη φόρμα επικοινωνίας - ${name} ${surname}`,
