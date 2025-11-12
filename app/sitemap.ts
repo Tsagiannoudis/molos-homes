@@ -3,7 +3,6 @@ import { NewProjects } from '@/data/newProjectsData';
 import { SoldProjects } from '@/data/soldProjectsData';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // TODO: Αντικατάστησε αυτό με το πραγματικό domain του ιστότοπού σου
   const baseUrl = 'https://www.molos-homes.gr';
 
   // Στατικές σελίδες
@@ -11,19 +10,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'yearly',
+      changeFrequency: 'yearly'as const,
       priority: 1,
     },
     {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'monthly' as const,
       priority: 0.8,
     },
     {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: 'monthly' as const,
       priority: 0.5,
     },
   ];
@@ -31,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Δυναμικές σελίδες για τα νέα projects
   const newProjectRoutes = NewProjects.map((project) => ({
     url: `${baseUrl}/new-projects/${project.slug}`,
-    lastModified: new Date(), // Μπορείς να χρησιμοποιήσεις μια συγκεκριμένη ημερομηνία αν υπάρχει στα δεδομένα σου
+    lastModified: new Date(), 
     changeFrequency: 'weekly',
     priority: 0.7,
   }));
