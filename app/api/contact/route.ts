@@ -5,18 +5,23 @@ export async function POST(request: Request) {
   // --- Έλεγχος για τις μεταβλητές περιβάλλοντος ---
   const apiKey = process.env.RESEND_API_KEY;
   const emailTo = process.env.EMAIL_TO;
+  const emailFrom = process.env.EMAIL_FROM;
 
-  if (!apiKey || !emailTo) {
-    console.error("Server Error: RESEND_API_KEY or EMAIL_TO is not configured.");
-    // Επιστρέφουμε ένα γενικό μήνυμα σφάλματος για ασφάλεια
+  if (!apiKey || !emailTo || !emailFrom) {
+    console.error(
+      "Server Error: Missing env vars",
+      "RESEND_API_KEY:", !!apiKey,
+      "EMAIL_TO:", !!emailTo,
+      "EMAIL_FROM:", !!emailFrom
+    );
     return NextResponse.json({ message: 'Server Error: mail is not configured.' }, { status: 500 });
   }
 
   try {
-    // Παίρνουμε τα δεδομένα από το σώμα του request (από τη φόρμα)
+    // δεδομένα από το σώμα του request
     const { name, surname, email, phone, message } = await request.json();
 
-    // Ο έλεγχος για τα required πεδία γίνεται ήδη στον client (με το `required` attribute)
+    // έλεγχος required πεδία γίνεται απο τον client 
     // αλλά ένας επιπλέον έλεγχος εδώ είναι καλή πρακτική για ασφάλεια.
     if (!name || !surname || !email || !message) {
       return NextResponse.json({ message: 'Please fill in all the required fields.' }, { status: 400 });
@@ -25,9 +30,9 @@ export async function POST(request: Request) {
     const resend = new Resend(apiKey);
 
     const { error } = await resend.emails.send({
-      from: `Molos Homes <onboarding@resend.dev>`,
-      to: [emailTo],
-      replyTo: email, 
+      from: `Molos Homes <${emailFrom}>`,
+      to: emailTo.split(',').map(e => e.trim()).filter(Boolean), // υποστηρίζει πολλούς παραλήπτες
+      replyTo: email,
       subject: `Νέο μήνυμα από τη φόρμα επικοινωνίας - ${name} ${surname}`,
       html: `
         <h1>Νέο Μήνυμα Επικοινωνίας</h1>
