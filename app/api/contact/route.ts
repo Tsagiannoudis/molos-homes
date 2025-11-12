@@ -9,7 +9,7 @@ export async function POST(request: Request) {
   if (!apiKey || !emailTo) {
     console.error("Server Error: RESEND_API_KEY or EMAIL_TO is not configured.");
     // Επιστρέφουμε ένα γενικό μήνυμα σφάλματος για ασφάλεια
-    return NextResponse.json({ message: 'Σφάλμα διακομιστή. Η διαμόρφωση δεν είναι σωστή.' }, { status: 500 });
+    return NextResponse.json({ message: 'Server Error: mail is not configured.' }, { status: 500 });
   }
 
   try {
@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     // Ο έλεγχος για τα required πεδία γίνεται ήδη στον client (με το `required` attribute)
     // αλλά ένας επιπλέον έλεγχος εδώ είναι καλή πρακτική για ασφάλεια.
     if (!name || !surname || !email || !message) {
-      return NextResponse.json({ message: 'Παρακαλώ συμπληρώστε όλα τα απαραίτητα πεδία.' }, { status: 400 });
+      return NextResponse.json({ message: 'Please fill in all the required fields.' }, { status: 400 });
     }
 
     const resend = new Resend(apiKey);
@@ -42,12 +42,12 @@ export async function POST(request: Request) {
     });
     if (error) {
       console.error("Resend API Error:", error);
-      return NextResponse.json({ message: 'Η αποστολή απέτυχε. Παρακαλώ δοκιμάστε ξανά.' }, { status: 500 });
+      return NextResponse.json({ message: 'Message failed to send. Please try again.' }, { status: 500 });
     }
 
-    return NextResponse.json({ message: 'Το μήνυμά σας στάλθηκε με επιτυχία!' }, { status: 200 });
+    return NextResponse.json({ message: 'Message sent successfully!' }, { status: 200 });
   } catch (e) {
     console.error("API Route General Error:", e);
-    return NextResponse.json({ message: 'Η αποστολή απέτυχε. Παρακαλώ δοκιμάστε ξανά.' }, { status: 500 });
+    return NextResponse.json({ message: 'Message failed to send. Please try again.' }, { status: 500 });
   }
 }
