@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     const { error } = await resend.emails.send({
       from: `Molos Homes <onboarding@resend.dev>`,
       to: [emailTo],
-      reply_to: email, // Το σωστό πεδίο είναι reply_to
+      replyTo: email, 
       subject: `Νέο μήνυμα από τη φόρμα επικοινωνίας - ${name} ${surname}`,
       html: `
         <h1>Νέο Μήνυμα Επικοινωνίας</h1>
