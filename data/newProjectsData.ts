@@ -52,6 +52,7 @@ export const NewProjects = [
             '/images/projectsPhoto/stone4/stonehouse_4.2.webp',
             '/images/projectsPhoto/stone4/stonehouse_4.3.webp',
             '/images/projectsPhoto/stone4/stonehouse_4.4.webp',
+            '/images/projectsPhoto/stone4/stonehouse_video.mp4',
         ],
         details: [
             'Μοντέρνα και λιτή αισθητική που αναδεικνύει κάθε αρχιτεκτονικό σχέδιο.',
